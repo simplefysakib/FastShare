@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f4f7fc"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layoutSenderRadar"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtSearching"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#3f51b5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:text="Searching for receivers..."
+            android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:id="@+id/radarContainer"
+            android:clipChildren="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/btnScanQr"
+            android:layout_below="@id/txtSearching">
+
+            <View
+                android:id="@+id/ripple1"
+                android:background="@drawable/bg_radar_circle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true" />
+
+            <View
+                android:id="@+id/ripple2"
+                android:background="@drawable/bg_radar_circle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true" />
+
+            <ImageView
+                android:id="@+id/myRadarAvatar"
+                android:background="@drawable/circle_bg"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/avatar_boy"
+                android:scaleType="centerCrop"
+                android:layout_centerInParent="true"
+                android:elevation="8dp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnScanQr"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_margin="30dp"
+            android:text="SCAN RECEIVER QR"
+            android:layout_alignParentBottom="true"
+            android:elevation="8dp"
+            android:backgroundTint="#ff9800"
+            app:cornerRadius="35dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutReceiverQR"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/receiverMyAvatar"
+            android:background="@drawable/circle_bg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/avatar_boy"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/receiverMyName"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Name" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:textSize="18sp"
+            android:textColor="#4caf50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ready to receive!" />
+
+        <ImageView
+            android:id="@+id/qrCodeImage"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="30dp" />
+
+        <TextView
+            android:textSize="16sp"
+            android:textColor="#888"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Scan this QR from sender device" />
+
+        <ProgressBar
+            android:id="@+id/loadingSpinner"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp" />
+    </LinearLayout>
+</FrameLayout>

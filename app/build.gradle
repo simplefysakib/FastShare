@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.fastshare.transfer'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.fastshare.transfer"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.1"
+    }
+
+    // Ye naya block add kiya hai app ko sign karne ke liye
+    signingConfigs {
+        release {
+            storeFile file("fastshare.jks")
+            storePassword "123456"
+            keyAlias "fastshare"
+            keyPassword "123456"
+        }
+    }
+
+    buildTypes {
+        release {
+            // Yahan humne gradle ko bataya ki release build ko sign karna hai
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            crunchPngs false 
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    
+    // Google Nearby Connections API
+    implementation 'com.google.android.gms:play-services-nearby:18.5.0'
+    
+    // Zxing Barcode Scanner
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+
+    // Unity Ads
+    implementation 'com.unity3d.ads:unity-ads:4.12.2'
+}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f4f7fc"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/waterHeaderContainer"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_margin="15dp"
+        app:cardBackgroundColor="#ffffff"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp">
+
+        <com.fastshare.transfer.WaveProgressView
+            android:id="@+id/waveProgressView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtTotalProgress"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transferred 0 MB"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/txtSpeed"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#3f51b5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0 MB/s"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:id="@+id/txtStatus"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#555555"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Connecting..."
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ListView
+        android:id="@+id/transferListView"
+        android:padding="10dp"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:layout_above="@id/btnSendMore"
+        android:layout_below="@id/waterHeaderContainer" />
+
+    <Button
+        android:id="@+id/btnSendMore"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_margin="15dp"
+        android:text="SEND FILES"
+        android:layout_alignParentBottom="true"
+        android:elevation="6dp"
+        android:backgroundTint="#ff9800"
+        app:cornerRadius="30dp" />
+</RelativeLayout>
